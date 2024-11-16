@@ -61,7 +61,8 @@ class Program
         {
             if (cellContext.TryGetParent<IWorldspaceGetter>()?.ToNullableLink() is not { } link || !worldspaces.ContainsKey(link))
                 continue;
-            worldspaces[link].Add(cellContext.Record.Grid!.Point, cellContext);
+            worldspaces[link].Set(cellContext.Record.Grid!.Point, cellContext);
+
         }
 
         foreach (var region in regions)
